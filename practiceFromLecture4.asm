@@ -55,6 +55,10 @@ print_digit_reverse:
 	syscall
 	sll $t0,$t0,1
 	bne $t0,0x10000,print_digit_reverse
+	
+	li $v0,11
+	li $a0,'\n'
+	syscall
 	#================ THIS SECTION IS SEIF B =============
 	
 	
