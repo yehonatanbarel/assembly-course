@@ -47,14 +47,14 @@ print_digit:
 	#================ THIS SECTION IS SEIF B =============
 	li $v0,1
 	li $t0,0x1
-print_digit_reverse:
+print_16_digit_reverse:
 	and $a0,$s0,$t0
 	beq $a0,$zero,print_digit_reverse
 	li $a0,1
 print_digit_reverse:
 	syscall
 	sll $t0,$t0,1
-	bne $t0,0x10000,print_digit_reverse
+	bne $t0,0x10000,print_16_digit_reverse
 	
 	li $v0,11
 	li $a0,'\n'
