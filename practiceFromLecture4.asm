@@ -28,3 +28,48 @@ get_input:
 	j get_input
 	
 continue:
+	move $s0,$v0
+	li $v0,1
+	li $t0,0x8000 # i dont understand, minute 34
+print_16_bit:
+	and $a0,$s0,$t0			# mask
+	beq $a0,$zero,print_digit
+	li $a0,1
+print_digit:
+	syscall
+	srl $t0,$t0,1
+	bne $t0,$zero,print_16_bit # if mask is not zero - go back to loop
+	
+	li $v0,11
+	li $a0,'\n'
+	syscall
+	
+	#================ THIS SECTION IS SEIF B =============
+	li $v0,1
+	li $t0,0x1
+print_digit_reverse:
+	and $a0,$s0,$t0
+	beq $a0,$zero,print_digit_reverse
+	li $a0,1
+print_digit_reverse:
+	syscall
+	sll $t0,$t0,1
+	bne $t0,0x10000,print_digit_reverse
+	#================ THIS SECTION IS SEIF B =============
+	
+	
+	
+	li $v0,10  # exit program gracfully
+	syscall
+	
+	# =============== ALL THE ABOVE IS JUST FOR Q4 SEIF A=========
+	# =============== SEMETER 2018 A MAMAN 12 Q 4 =================
+	
+		
+	
+	
+	
+	
+	
+	
+	
