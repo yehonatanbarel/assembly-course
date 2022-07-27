@@ -12,10 +12,9 @@
 		la $a0,newLine
 		syscall
 		
-		# Print value
-		li $v0,1
-		move $a0,$s0
-		syscall
+	
+		# Print new value in function with nested procedure (function)
+		jal printTheValue 
 	
 		# This line is going to end the program
 		li, $v0,10
@@ -27,16 +26,21 @@
 		
 		addi $s0, $s0, 30
 		
-		# Print new value in function
-		li $v0,1
-		move $a0,$s0
-		syscall
+		
+		jal printTheValue 
 		
 		lw $s0, 0($sp)
 		addi $sp, $sp,4
 		
 		jr $ra
-	
+		
+		
+	printTheValue:
+		li $v0,1
+		move $a0,$s0
+		syscall
+		
+		jr $ra
 		
 	
 	
