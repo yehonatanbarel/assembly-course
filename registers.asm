@@ -27,6 +27,7 @@
 		addi $s0, $s0, 30
 		
 		
+		# nested procedure (fucntion)
 		jal printTheValue 
 		
 		lw $s0, 0($sp)
