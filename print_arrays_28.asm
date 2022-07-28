@@ -4,6 +4,7 @@
 	# need to remember how many byte of memory each data type need
 	# in this example we could store 3 int, because: 1 int = 4 byte
 	myArray: .space 12
+	newLine: .ascciz "\n"
  
 .text
 	addi  $s0,$zero,4
