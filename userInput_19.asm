@@ -1,7 +1,6 @@
 .data
 	prompt: .asciiz "Enter your age: "
 	message: .asciiz "\nYour age is " 
-
 .text
 	# Promp the user to enter age.
 	li $v0,4
@@ -9,7 +8,7 @@
 	syscall
 	
 	# Get user age
-	li $v0,5 # this is syscall that we can get user age. this is how to get an int from keyboard
+	li $v0,5 #this is syscall that we can get user age.this is how to get an int from keyboard
 	syscall
 	
 	# Store the result in $t0
