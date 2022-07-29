@@ -12,6 +12,10 @@
 	# Get num from user
 	li $v0,5 
 	syscall
+	
+	# Notice that this line is after get user input
+	# get user input will put the value in register $v0 and then when we want to print 
+	# that value we will need to move it to register $a0
 	move $a0,$v0
 	
 	
